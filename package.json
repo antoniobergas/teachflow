@@ -1,14 +1,14 @@
 {
-  "name": "ess-website",
-  "version": "0.1.0",
+  "name": "teachflow",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "compile": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier:format": "prettier --write .",
-    "commit": "bun prettier:format && bun lint && git add . && oco"
+    "prettier": "prettier --write .",
+    "commit": "bun prettier && bun lint && git add . && oco"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
