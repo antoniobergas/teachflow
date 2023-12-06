@@ -7,10 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier:format": "prettier --write ."
+    "prettier:format": "prettier --write .",
+    "commit": "bun prettier:format && bun lint && git add . && oco"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@nextui-org/react": "^2.2.9",
+    "framer-motion": "^10.16.14",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18"
