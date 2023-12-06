@@ -1,4 +1,5 @@
-import Students from "../../ui/students";
+"use client";
+import Students from "@/ui/students";
 
 export default function Evaluation() {
   return (
