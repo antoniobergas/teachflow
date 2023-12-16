@@ -1,4 +1,4 @@
-import React, { Key, useCallback } from "react";
+import React, { Key, useCallback, useEffect, useState } from "react";
 import {
   Table,
   TableHeader,
@@ -7,14 +7,35 @@ import {
   TableRow,
   TableCell,
   User,
-  Chip,
-  Tooltip,
-  getKeyValue,
 } from "@nextui-org/react";
-import { columns, students } from "@/evaluation/data";
-import type { Student } from "@/evaluation/data";
+import { Student } from "@/api/students/route";
+import { Class } from "@/api/classes/route";
+
+const columns = [
+  {
+    key: "id",
+    label: "ID",
+  },
+  {
+    key: "name",
+    label: "NAME",
+  },
+  {
+    key: "classroomId",
+    label: "CLASSROOM",
+  },
+];
 
 export default function Students() {
+  const [students, setStudents] = useState<Student[]>([]);
+  const [classes, setClasses] = useState<Class[]>([]);
+
+  useEffect(() => {
+    fetch("/api/students")
+      .then((response) => response.json())
+      .then((data) => setStudents(data));
+  }, []);
+
   const renderCell = useCallback((student: Student, columnKey: Key) => {
     const cellValue = student[columnKey as keyof Student];
 
@@ -48,7 +69,7 @@ export default function Students() {
       </TableHeader>
       <TableBody items={students}>
         {(item) => (
-          <TableRow key={item.key}>
+          <TableRow key={item.id}>
             {(columnKey) => (
               <TableCell>{renderCell(item, columnKey)}</TableCell>
             )}

@@ -7,7 +7,6 @@ import {
   UserIcon,
 } from "@heroicons/react/24/outline";
 import {
-  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -16,8 +15,8 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from "@nextui-org/react";
-import Links from "./links";
 import React from "react";
+import Links from "./links";
 
 const menuItems = [
   {

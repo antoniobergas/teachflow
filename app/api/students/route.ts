@@ -1,5 +1,7 @@
+import { NextResponse } from "next/server";
+
 export interface Student {
-  key: string;
+  id: string;
   name: string;
   classroomId: string;
   avatar: string;
@@ -7,24 +9,9 @@ export interface Student {
   status: string;
 }
 
-const columns = [
-  {
-    key: "id",
-    label: "ID",
-  },
-  {
-    key: "name",
-    label: "NAME",
-  },
-  {
-    key: "classroomId",
-    label: "CLASSROOM",
-  },
-];
-
 const students: Student[] = [
   {
-    key: "1",
+    id: "1",
     name: "Student 1",
     classroomId: "class1",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
@@ -32,7 +19,7 @@ const students: Student[] = [
     status: "paused",
   },
   {
-    key: "2",
+    id: "2",
     name: "Student 2",
     classroomId: "class1",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
@@ -40,7 +27,7 @@ const students: Student[] = [
     status: "active",
   },
   {
-    key: "3",
+    id: "3",
     name: "Student 3",
     classroomId: "class2",
     avatar: "https://i.pravatar.cc/150?u=a04258114e29026702d",
@@ -48,7 +35,7 @@ const students: Student[] = [
     status: "vacation",
   },
   {
-    key: "4",
+    id: "4",
     name: "Student 4",
     classroomId: "class2",
     avatar: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
@@ -57,4 +44,6 @@ const students: Student[] = [
   },
 ];
 
-export { columns, students };
+export async function GET(request: Request) {
+  return NextResponse.json(students);
+}
