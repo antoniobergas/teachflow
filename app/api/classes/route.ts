@@ -1,9 +1,6 @@
-import { NextResponse } from "next/server";
-
-export interface Class {
-  id: string;
-  name: string;
-}
+import { Class } from "@/types";
+import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 
 const classes: Class[] = [
   {
@@ -24,6 +21,6 @@ const classes: Class[] = [
   },
 ];
 
-export default function GET(request: Request) {
+export async function GET(req: NextRequest) {
   return NextResponse.json(classes);
 }

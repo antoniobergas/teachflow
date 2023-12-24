@@ -1,13 +1,5 @@
+import { Student } from "@/types";
 import { NextResponse } from "next/server";
-
-export interface Student {
-  id: string;
-  name: string;
-  classroomId: string;
-  avatar: string;
-  email: string;
-  status: string;
-}
 
 const students: Student[] = [
   {

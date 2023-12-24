@@ -7,9 +7,9 @@ import {
   TableRow,
   TableCell,
   User,
+  Link,
 } from "@nextui-org/react";
-import { Student } from "@/api/students/route";
-import { Class } from "@/api/classes/route";
+import { Student } from "@/types";
 
 const columns = [
   {
@@ -28,7 +28,6 @@ const columns = [
 
 export default function Students() {
   const [students, setStudents] = useState<Student[]>([]);
-  const [classes, setClasses] = useState<Class[]>([]);
 
   useEffect(() => {
     fetch("/api/students")
@@ -47,7 +46,9 @@ export default function Students() {
             description={student.email}
             name={cellValue}
           >
-            {student.email}
+            <Link isExternal showAnchorIcon href={`mailto:${student.email}`}>
+              {student.email}
+            </Link>
           </User>
         );
       default:
