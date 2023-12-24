@@ -32,4 +32,4 @@ jobs:
       - name: Check lint
         run: npm run lint
       - name: Check compilation
-        run: npm run build
+        run: npm run compile
