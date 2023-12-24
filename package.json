@@ -7,8 +7,9 @@
     "compile": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --write .",
-    "commit": "bun prettier && bun lint && git add . && oco"
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "commit": "bun format && bun lint && git add . && oco"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
